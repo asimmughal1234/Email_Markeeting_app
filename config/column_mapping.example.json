@@ -1,0 +1,11 @@
+{
+  "business_name": "Business Name",
+  "email": "Email(s)",
+  "phone_number": "Phone Number",
+  "website": "Website",
+  "city": "City",
+  "rating": "Rating",
+  "number_of_reviews": "Number of Reviews",
+  "category": "Category",
+  "google_maps_url": "Google Maps URL"
+}
