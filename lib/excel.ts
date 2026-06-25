@@ -58,14 +58,16 @@ export function isValidEmail(email: string): boolean {
 }
 
 export function personalize(template: string, data: Record<string, string>, recipientEmail: string): string {
-  const merged = {
+  const merged: Record<string, string> = {
     ...data,
     email: recipientEmail,
   };
 
   return template.replace(/\{([^{}]+)\}/g, (full, key) => {
-    const normalizedKey = normalizeKey(key);
-    return Object.prototype.hasOwnProperty.call(merged, normalizedKey) ? merged[normalizedKey] : full;
+    const normalizedKey = normalizeKey(String(key));
+    const replacement = merged[normalizedKey];
+
+    return replacement !== undefined && replacement !== "" ? replacement : full;
   });
 }
 
